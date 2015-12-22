@@ -1,8 +1,8 @@
 {
   "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "description": "An AngularJS app with image upload using Firebase",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/riderrocks/angularFirebase",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "sweetalert": "*",
+    "ideal-image-slider": "*",
     "ng-file-upload-shim": "~10.1.11",
     "ng-file-upload": "~10.1.11"
   },
