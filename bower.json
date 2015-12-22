@@ -12,6 +12,7 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "sweetalert": "*",
+    "ideal-image-slider": "*",
     "ng-file-upload-shim": "~10.1.11",
     "ng-file-upload": "~10.1.11"
   },
