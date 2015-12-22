@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Upload Image</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+</head>
+
+<body ng-controller="AddImageCtrl">
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                <a class="blog-nav-item" href="#/welcome">Home</a>
+                <a class="blog-nav-item" href="#/addPost">Add Post</a>
+                <a class="blog-nav-item active" href="#/addImage">Upload Image</a>
+                <a class="blog-nav-item" style="cursor:pointer;" ng-click="logout();">Logout</a>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-horizontal" ng-submit="AddImages(files)">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Add Images</legend>
+                <!-- Images -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="pictures">Add Pictures</label>
+                    <div class="col-md-4">
+                        <input id="pictures" type="file" ngf-select ng-model="files" name="file" accept="image/*" ngf-max-size="2MB" ngf-keep="true" multiple ngf-keep-distinct="true" class="btn btn-primary" />
+                    </div>
+                </div>
+                <!-- Show image thumb and remove option -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2" ng-repeat="file in files">
+                            <img ngf-thumbnail="!file.$error && file" class="thumb"> <span class="glyphicon glyphicon-remove-circle" ng-click="remove(files, $index)"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <input id="singlebutton" ng-disabled="!files" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

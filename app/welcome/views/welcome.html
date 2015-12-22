@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AngularJS & Firebase Web App</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+</head>
+
+<body ng-controller="WelcomeCtrl">
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                <a class="blog-nav-item active" href="#/welcome">Home</a>
+                <a class="blog-nav-item" href="#/addPost">Add Post</a>
+                <a class="blog-nav-item" href="#/addImage">Upload Image</a>
+                <a class="blog-nav-item" style="cursor:pointer;" ng-click="logout();">Logout</a>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>Welcome to Bookmyshow</h1>
+        </div>
+        <p class="lead">Hi <b>{{username}}</b> !!</p>
+        <div class="list-group" ng-repeat="article in articles">
+            <a href="#" onclick="return false;" class="list-group-item active">
+                <h4 class="list-group-item-heading" ng-click="editPost(article.$id)" data-target="#editModal">{{article.title}}</h4>
+                <p class="list-group-item-text" ng-click="editPost(article.$id)" data-target="#editModal">{{article.post}}</p>
+                <span class="pull-right">
+                  <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
+                  <button class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal">DELETE</button>
+                </span>
+            </a>
+        </div>
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="editModalLabel">Update Post</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Title:</label>
+                                <input type="text" class="form-control" ng-model="postToUpdate.title" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="control-label">Post:</label>
+                                <textarea class="form-control" id="message-text" ng-model="postToUpdate.post"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="update()">Publish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align:center;">
+                        <h4 class="modal-title" style="color:red;" id="deleteModalLabel">You are going to Delete this post forever !!</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="deletePost()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="slider">
+            <img src="theme/images/5.jpg" alt="Minimum required attributes">
+            <img data-src="theme/images/3.jpg" src="" alt="Use data-src for on-demand loading">
+            <img data-src="theme/images/4.jpg" src="" alt="Use data-src for on-demand loading">
+            <img data-src="theme/images/6.jpg" src="" alt="Use data-src">
+        </div>
+    </div>
+    <div class="container">
+        <p><strong>Irfan Pathan Hat-Trick agaisnt Pakistan</strong></p>
+        <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
+            <source src="theme/videos/Cricket Irfan Pathan of India getting a hattrick agaisnt Pakistan.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+        <p><strong>Harbhajan Singh Hat-Trick vs Australia</strong></p>
+        <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
+            <source src="theme/videos/Harbhajan Singh Hat-Trick vs Australia.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"></p>
+        </div>
+    </footer>
+</body>
+
+</html>
