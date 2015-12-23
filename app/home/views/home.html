@@ -29,7 +29,7 @@
                 <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="6">
                 <p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 6 characters.</p>
             </div>
-            <button ladda-loading="login.loading" data-style="expand-right"  type="button" ng-click="SignIn($event)" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign In</span></button>
+            <button ladda-loading="login.loading" data-style="expand-right" type="button" ng-click="SignIn($event)" ng-disabled="!user.email || !user.password" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign In</span></button>
             <label class="checkbox">
                 New User?<a href="#/register"> Sign Up</a>
             </label>
