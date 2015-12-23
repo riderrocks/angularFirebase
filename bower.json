@@ -13,6 +13,10 @@
     "html5-boilerplate": "~5.2.0",
     "sweetalert": "*",
     "ideal-image-slider": "*",
+<<<<<<< HEAD
+=======
+    "angular-base64":"*",
+>>>>>>> 2c6ecc2d775e6c35ca1bcd6df425cc5de645f793
     "ng-file-upload-shim": "~10.1.11",
     "ng-file-upload": "~10.1.11"
   },

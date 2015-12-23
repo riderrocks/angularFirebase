@@ -3,8 +3,11 @@
 
 <head>
     <title>Upload Image</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="theme/css/blog.css">
+    <link rel="stylesheet" href="theme/css/ladda-themeless.min.css">
+    <script type="text/javascript" src="js/spin.min.js"></script>
+    <script type="text/javascript" src="js/ladda.min.js"></script>
 </head>
 
 <body ng-controller="AddImageCtrl">
@@ -42,7 +45,8 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="singlebutton"></label>
                     <div class="col-md-4">
-                        <input id="singlebutton" ng-disabled="!files" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+                        <!-- <input id="singlebutton" ladda-loading="login.loading" data-style="expand-right" ng-disabled="!files" name="singlebutton" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block" type="button" value="Upload" /> -->
+                        <button type="button" ladda-loading="login.loading" data-style="expand-right" class="btn btn-primary segoe-ui-light ladda-button" ng-click="AddImages(files)"><span class="ladda-label">Upload</span></button>
                     </div>
                 </div>
             </fieldset>
