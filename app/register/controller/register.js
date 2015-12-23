@@ -28,7 +28,7 @@ angular.module('myApp.register', ['ngRoute', 'firebase'])
                     .then(function() {
                         // do things if success
                         console.log('User creation success');
-                        alert('User creation success');
+                        swal("",'User creation success',"success");
                         $location.path('/home');
                     }, function(error) {
                         // do things if failure
