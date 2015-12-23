@@ -43,7 +43,7 @@ angular.module('myApp.home', ['ngRoute','firebase'])
             // Failure callback
             login.loading = false;
             console.log('Authentication failure');
-            alert('Authentication failure');
+            swal("Oops!","Authentication failure","error");
         });
 }
 }])

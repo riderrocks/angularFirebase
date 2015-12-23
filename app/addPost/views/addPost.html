@@ -3,8 +3,11 @@
 
 <head>
     <title></title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="theme/css/blog.css">
+    <link rel="stylesheet" href="theme/css/ladda-themeless.min.css">
+    <script type="text/javascript" src="js/spin.min.js"></script>
+    <script type="text/javascript" src="js/ladda.min.js"></script>
 </head>
 
 <body ng-controller="AddPostCtrl">
@@ -21,27 +24,23 @@
     <div class="container">
         <form class="form-horizontal" ng-submit="AddPost()">
             <fieldset>
-                <!-- Form Name -->
                 <legend>Create Post</legend>
-                <!-- Text input -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="txtTitle">Title</label>
                     <div class="col-md-4">
                         <input id="txtTitle" name="txtTitle" ng-model="article.title" type="text" class="form-control input-md">
                     </div>
                 </div>
-                <!-- Textarea -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="txtPost">Post</label>
                     <div class="col-md-4">
                         <textarea class="form-control" id="txtPost" ng-model="article.post" name="txtPost"></textarea>
                     </div>
                 </div>
-                <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="singlebutton"></label>
                     <div class="col-md-4">
-                        <input id="singlebutton" ng-disabled="!article.title || !article.post" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+                        <button type="button" ladda-loading="login.loading" data-style="expand-right" class="btn btn-primary segoe-ui-light ladda-button" ng-disabled="!article.title || !article.post" ng-click="AddPost()"><span class="ladda-label">Publish</span></button>
                     </div>
                 </div>
             </fieldset>
