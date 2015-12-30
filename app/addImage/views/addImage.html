@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html ng-app="myApp">
-
-<head>
-    <title>Upload Image</title>
-    <link rel="stylesheet" href="theme/css/bootstrap.min.css">
-    <link rel="stylesheet" href="theme/css/blog.css">
-    <link rel="stylesheet" href="theme/css/ladda-themeless.min.css">
-    <script type="text/javascript" src="js/spin.min.js"></script>
-    <script type="text/javascript" src="js/ladda.min.js"></script>
-</head>
-
-<body ng-controller="AddImageCtrl">
-    <div class="blog-masthead">
-        <div class="container">
-            <nav class="blog-nav">
-                <a class="blog-nav-item" href="#/welcome">Home</a>
-                <a class="blog-nav-item" href="#/addPost">Add Post</a>
-                <a class="blog-nav-item active" href="#/addImage">Upload Image</a>
-                <a class="blog-nav-item" style="cursor:pointer;" ng-click="logout();">Logout</a>
-            </nav>
-        </div>
-    </div>
+<div ng-controller="AddImageCtrl">
+    <div ng-include="'header/views/header.html'"></div>
     <div class="container">
         <form class="form-horizontal" ng-submit="AddImages(files)">
             <fieldset>
@@ -52,6 +31,4 @@
             </fieldset>
         </form>
     </div>
-</body>
-
-</html>
+</div>

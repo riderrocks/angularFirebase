@@ -9,7 +9,6 @@ angular.module('myApp.addImage', ['ngRoute', 'base64', 'ngFileUpload'])
     });
 }])
 
-
 .controller('AddImageCtrl', ['$scope', '$firebase', '$location', 'CommonProp', '$base64', 'Upload', function($scope, $firebase, $location, CommonProp, $base64, Upload) {
 
     if (!CommonProp.getUser()) {
@@ -24,7 +23,7 @@ angular.module('myApp.addImage', ['ngRoute', 'base64', 'ngFileUpload'])
         login.loading = true;
         var fb = new Firebase("https://radiant-torch-5333.firebaseio.com/");
         var fbAuth = fb.getAuth();
-        var newFb = fb.child("Images/" + fbAuth.uid).child("pictures");
+        var newFb = fb.child(fbAuth.uid);
 
         Upload.base64DataUrl(files).then(function(base64Urls) {
 

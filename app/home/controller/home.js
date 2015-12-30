@@ -34,15 +34,11 @@ angular.module('myApp.home', ['ngRoute','firebase'])
             password: password
         })
         .then(function(user) {
-            // Success callback
-            console.log('Authentication successful');
             CommonProp.setUser(user.password.email);
             $location.path('/welcome');
-            swal("Yay!","Authentication successful","success");
+            // swal("Yay!","Authentication successful","success");
         }, function(error) {
-            // Failure callback
             login.loading = false;
-            console.log('Authentication failure');
             swal("Oops!","Authentication failure","error");
         });
 }
@@ -65,10 +61,9 @@ angular.module('myApp.home', ['ngRoute','firebase'])
         },
         logoutUser: function() {
             loginObj.$unauth();
-            console.log('done logout');
             user='';
             localStorage.removeItem('userEmail');
-            $location.path('/');
+            $location.path('/home');
         }
     };
 }])
@@ -78,9 +73,7 @@ angular.module('myApp.home', ['ngRoute','firebase'])
             link: function(scope, element, attrs) {
                 var Ladda = window.Ladda;
                 var ladda = Ladda.create(element[0]);
-                // watching login.loading for change
                 scope.$watch(attrs.laddaLoading, function(newVal, oldVal) {
-                    // Based on the value start and stop the indicator
                     if (newVal) {
                         ladda.start();
                     } else {

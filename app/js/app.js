@@ -4,6 +4,7 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.home',
     'myApp.register',
+    'myApp.header',
     'myApp.welcome',
     'myApp.addPost',
     'myApp.addImage',

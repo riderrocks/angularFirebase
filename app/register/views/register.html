@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <title>AngularJS & Firebase Web App</title>
-    <link href="theme/css/bootstrap.min.css" rel="stylesheet">
-    <link href="theme/css/signin.css" rel="stylesheet">
-    <link href="theme/css/justified-nav.css" rel="stylesheet">
-    <script src="js/spin.min.js"></script>
-    <script src="js/ladda.min.js"></script>
-    <link href="theme/css/ladda-themeless.min.css" rel="stylesheet">
-</head>
-
-<body ng-controller="RegisterCtrl">
+<div ng-controller="RegisterCtrl">
     <div class="container">
-        <div class="jumbotron" style="padding-bottom:0px;">
+        <div class="page-header">
             <h2>Registration!</h2>
         </div>
         <form class="form-signin" name="regForm">
@@ -32,10 +17,8 @@
             <p style="color:red;" ng-show="regError">{{regErrorMessage}}</p>
             <button type="button" ladda-loading="login.loading" data-style="expand-right" ng-click="signUp();" ng-disabled="!user.email || !user.password" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block">Register</button>
             <label class="checkbox">
-                Existing User?<a href="#/"> Sign In</a>
+                Existing User?<a href="#/home"> Sign In</a>
             </label>
         </form>
     </div>
-</body>
-
-</html>
+</div>

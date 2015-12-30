@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <title>AngularJS & Firebase Web App</title>
-    <link href="theme/css/bootstrap.min.css" rel="stylesheet">
-    <link href="theme/css/signin.css" rel="stylesheet">
-    <link href="theme/css/justified-nav.css" rel="stylesheet">
-    <script src="js/spin.min.js"></script>
-    <script src="js/ladda.min.js"></script>
-    <link href="theme/css/ladda-themeless.min.css" rel="stylesheet">
-</head>
-
-<body ng-controller="HomeCtrl">
+<div ng-controller="HomeCtrl">
     <div class="container">
-        <div class="jumbotron" style="padding-bottom:0px;">
+        <div class="page-header">
             <h2>Login!</h2>
         </div>
         <form class="form-signin" name="signinForm">
@@ -29,12 +14,10 @@
                 <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="6">
                 <p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 6 characters.</p>
             </div>
-            <button ladda-loading="login.loading" data-style="expand-right"  type="button" ng-click="SignIn($event)" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign In</span></button>
+            <button ladda-loading="login.loading" data-style="expand-right"  type="button" ng-click="SignIn($event)" ng-disabled="!user.email || !user.password" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign In</span></button>
             <label class="checkbox">
                 New User?<a href="#/register"> Sign Up</a>
             </label>
         </form>
     </div>
-</body>
-
-</html>
+</div>
