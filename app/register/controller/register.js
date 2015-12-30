@@ -24,7 +24,13 @@ angular.module('myApp.register', ['ngRoute', 'firebase'])
                 login.loading = true;
                 auth.$createUser(email, password)
                     .then(function() {
+<<<<<<< HEAD
                         swal("Yay!","User creation successful","success");
+=======
+                        // do things if success
+                        console.log('User creation success');
+                        swal("",'User creation success',"success");
+>>>>>>> be12cc5e8d64d1588bb6fb62710099ec3cf7e468
                         $location.path('/home');
                     }, function(error) {
                         console.log(error);
