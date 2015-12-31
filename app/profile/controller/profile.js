@@ -5,11 +5,11 @@ angular.module('myApp.profile',['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/profile', {
 		templateUrl: 'profile/views/profile.html',
-		controller: 'Profile'
+		controller: 'ProfileCtrl'
 	});
 }])
 
-.controller('Profile', ['$scope','$firebase','$location','CommonProp', function($scope, $firebase, $location, CommonProp) {
+.controller('ProfileCtrl', ['$scope','$firebase','$location','CommonProp', function($scope, $firebase, $location, CommonProp) {
 	if(!CommonProp.getUser()) {
 		$location.path('/home');
 	}
@@ -29,11 +29,12 @@ angular.module('myApp.profile',['ngRoute'])
             lname: $scope.profile.lname,
             phno: $scope.profile.phno
         }).then(function(ref) {
-            console.log(ref);
+            swal("Done!","Profile updated successfully","success");
             login.loading = false;
             $location.path('/welcome');
         }, function(error) {
             login.loading = false;
+            swal("Oops!","There was a problem updating your profile","error");
             console.log("Error:", error);
         });
 	}

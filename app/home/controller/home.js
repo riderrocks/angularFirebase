@@ -1,6 +1,6 @@
 'use strict';
- 
-angular.module('myApp.home', ['ngRoute','firebase'])
+
+angular.module('myApp.home', ['ngRoute', 'firebase'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/home', {
@@ -9,48 +9,49 @@ angular.module('myApp.home', ['ngRoute','firebase'])
     });
 }])
 
-.controller('HomeCtrl', ['$scope','$location','CommonProp', '$firebaseAuth',function($scope,$location,CommonProp,$firebaseAuth) {
-	var firebaseObj = new Firebase("https://radiant-torch-5333.firebaseio.com");
+.controller('HomeCtrl', ['$scope', '$location', 'CommonProp', '$firebaseAuth', function($scope, $location, CommonProp, $firebaseAuth) {
+    var firebaseObj = new Firebase("https://radiant-torch-5333.firebaseio.com");
     var loginObj = $firebaseAuth(firebaseObj);
 
     loginObj.$onAuth(function(authData) {
-        if(authData) {
+        if (authData) {
             CommonProp.setUser(authData.password.email);
             $location.path('/welcome');
         }
     });
-    
+
     $scope.user = {};
     var login = {};
     $scope.login = login;
 
     $scope.SignIn = function(event) {
-    login.loading = true;
-    event.preventDefault();  // To prevent form refresh
-    var username = $scope.user.email;
-    var password = $scope.user.password;
+        login.loading = true;
+        event.preventDefault();
+        var username = $scope.user.email;
+        var password = $scope.user.password;
         loginObj.$authWithPassword({
-            email: username,
-            password: password
-        })
-        .then(function(user) {
-            CommonProp.setUser(user.password.email);
-            $location.path('/welcome');
-            // swal("Yay!","Authentication successful","success");
-        }, function(error) {
-            login.loading = false;
-            swal("Oops!","Authentication failure","error");
-        });
-}
+                email: username,
+                password: password
+            })
+            .then(function(user) {
+                CommonProp.setUser(user.password.email);
+                $location.path('/welcome');
+                // swal("Yay!","Authentication successful","success");
+            }, function(error) {
+                login.loading = false;
+                swal("Oops!", "Authentication failure", "error");
+            });
+    }
 }])
-.service('CommonProp',['$location','$firebaseAuth', function($location, $firebaseAuth) {
+
+.service('CommonProp', ['$location', '$firebaseAuth', function($location, $firebaseAuth) {
     var user = '';
     var firebaseObj = new Firebase("https://radiant-torch-5333.firebaseio.com");
     var loginObj = $firebaseAuth(firebaseObj);
 
     return {
         getUser: function() {
-            if(user == '') {
+            if (user == '') {
                 user = localStorage.getItem('userEmail');
             }
             return user;
@@ -61,12 +62,13 @@ angular.module('myApp.home', ['ngRoute','firebase'])
         },
         logoutUser: function() {
             loginObj.$unauth();
-            user='';
+            user = '';
             localStorage.removeItem('userEmail');
             $location.path('/home');
         }
     };
 }])
+
 .directive('laddaLoading', [
     function() {
         return {
@@ -84,6 +86,3 @@ angular.module('myApp.home', ['ngRoute','firebase'])
         };
     }
 ]);
-
-
-

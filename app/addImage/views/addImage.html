@@ -2,17 +2,13 @@
     <div ng-include="'header/views/header.html'"></div>
     <div class="container">
         <form class="form-horizontal" ng-submit="AddImages(files)">
-            <fieldset>
-                <!-- Form Name -->
                 <legend>Add Images</legend>
-                <!-- Images -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="pictures">Add Pictures</label>
                     <div class="col-md-4">
                         <input id="pictures" type="file" ngf-select ng-model="files" name="file" accept="image/*" ngf-max-size="2MB" ngf-keep="true" multiple ngf-keep-distinct="true" class="btn btn-primary" />
                     </div>
                 </div>
-                <!-- Show image thumb and remove option -->
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-2" ng-repeat="file in files">
@@ -20,15 +16,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="singlebutton"></label>
                     <div class="col-md-4">
-                        <!-- <input id="singlebutton" ladda-loading="login.loading" data-style="expand-right" ng-disabled="!files" name="singlebutton" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block" type="button" value="Upload" /> -->
-                        <button type="button" ladda-loading="login.loading" data-style="expand-right" class="btn btn-primary segoe-ui-light ladda-button" ng-click="AddImages(files)"><span class="ladda-label">Upload</span></button>
+                        <button type="button" ladda-loading="login.loading" data-style="expand-right" class="btn btn-primary segoe-ui-light ladda-button" ng-disabled="!files" ng-click="AddImages(files)"><span class="ladda-label">Upload</span></button>
                     </div>
                 </div>
-            </fieldset>
         </form>
     </div>
 </div>

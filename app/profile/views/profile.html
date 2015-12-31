@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html ng-app="myApp">
-
-<head>
-    <title></title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-</head>
-
-<body ng-controller="Profile">
-    <div class="blog-masthead">
-        <div class="container">
-            <nav class="blog-nav">
-                <a class="blog-nav-item" href="#/welcome">Home</a>
-                <a class="blog-nav-item" href="#/addPost">Add Post</a>
-                <a class="blog-nav-item" href="#/addImage">Upload Image</a>
-                <a class="blog-nav-item active" href="#/profile">Profile</a>
-                <a class="blog-nav-item" style="cursor:pointer" ng-click="logout()">Logout</a>
-            </nav>
-        </div>
-    </div>
+<div ng-controller="ProfileCtrl">
+    <div ng-include="'header/views/header.html'"></div>
     <div class="container">
-        <form class="form-horizontal" ng-submit="submit()">
+        <form class="form-horizontal">
             <legend>Profile details</legend>
             <div class="form-group">
                 <label class="col-md-4 control-label">First name</label>
@@ -37,18 +18,15 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Mobile number</label>
                 <div class="col-md-4">
-                        <input id="phno" name="phno" ng-model="profile.phno" type="text" pattern="[0-9]{10}" title="Enter your mobile number" maxlength="10" class="form-control input-md">
+                    <input id="phno" name="phno" ng-model="profile.phno" type="text" pattern="[0-9]{10}" title="Enter your mobile number" maxlength="10" class="form-control input-md">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
-                <input ladda-loading="login.loading" data-style="expand-right" id="singlebutton" ng-disabled="!profile.fname || !profile.lname || !profile.phno" name="singlebutton" class="btn btn-primary" type="submit" value="Save"
-                />
+                    <button type="button" ladda-loading="login.loading" data-style="expand-right" class="btn btn-primary segoe-ui-light ladda-button" ng-disabled="!profile.fname || !profile.lname || !profile.phno" ng-click="submit()"><span class="ladda-label">Save</span></button>
                 </div>
             </div>
         </form>
     </div>
-</body>
-
-</html>
+</div>
