@@ -1,0 +1,24 @@
+<div ng-controller="RegisterCtrl">
+    <div class="container">
+        <div class="page-header">
+            <h2>Registration!</h2>
+        </div>
+        <form class="form-signin" name="regForm">
+            <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="user.email">
+                <p ng-show="regForm.email.$invalid">Enter a valid email.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : regForm.password.$invalid }">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="6">
+                <p ng-show="regForm.password.$error.minlength">Min password length is 6 characters.</p>
+            </div>
+            <p style="color:red;" ng-show="regError">{{regErrorMessage}}</p>
+            <button type="button" ladda-loading="login.loading" data-style="expand-right" ng-click="signUp();" ng-disabled="!user.email || !user.password" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block">Register</button>
+            <label class="checkbox">
+                Existing User?<a href="#/home"> Sign In</a>
+            </label>
+        </form>
+    </div>
+</div>
