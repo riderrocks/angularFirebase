@@ -1,0 +1,18 @@
+<div ng-controller="forgotPwdCtrl">
+    <div class="container">
+        <div class="page-header">
+            <h2>Forgot Password</h2>
+        </div>
+        <form class="form-signin" name="forgotPwdForm">
+            <div class="form-group" ng-class="{'has-error': forgotPwdForm.email.$invalid}">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="user.email">
+                <p class="help-block" ng-show="forgotPwdForm.email.$invalid">Enter a valid email.</p>
+            </div>
+            <button type="button" ladda-loading="login.loading" data-style="expand-right"  ng-click="forgotPwd($event)" ng-disabled="!user.email" class="btn btn-primary segoe-ui-light ladda-button"><span class="ladda-label">Submit</span></button>
+            <label class="checkbox">
+                <a href="#/home"> <-Back to Signin</a>
+            </label>
+        </form>
+    </div>
+</div>

@@ -1,11 +1,14 @@
 <div ng-controller="NavbarCtrl" class="blog-masthead">
     <div class="container">
         <nav class="blog-nav">
-            <a class="blog-nav-item" ng-class="{active : isRouteActive('/welcome')}" href="#/welcome">Home</a>
+        	<a class="blog-nav-item" ng-class="{active : isRouteActive('/welcome')}" href="#/welcome"><span class="glyphicon glyphicon-home"></span></a>
             <a class="blog-nav-item" ng-class="{active : isRouteActive('/addPost')}" href="#/addPost">Add Post</a>
             <a class="blog-nav-item" ng-class="{active : isRouteActive('/addImage')}" href="#/addImage">Upload Image</a>
-            <a class="blog-nav-item" ng-class="{active: isRouteActive('/profile')}" href="#/profile">Profile</a>
-            <a class="blog-nav-item" href="#" ng-click="logout();">Logout</a>
+            <a class="blog-nav-item blog-nav-item-right" href="#" ng-click="logout();">Logout</a>
+            <a class="blog-nav-item blog-nav-item-right" ng-class="{active: isRouteActive('/profile')}" href="#/profile"><span class="glyphicon glyphicon-user"></span></a>
+            <a class="blog-nav-item blog-nav-item-right"><span class="glyphicon glyphicon-bell badge">42</span></a>
+            <a class="blog-nav-item blog-nav-item-right" ng-class="{active: isRouteActive('/videos')}" href="
+            #/videos"><span class="glyphicon glyphicon-facetime-video"></span></a>
         </nav>
     </div>
 </div>

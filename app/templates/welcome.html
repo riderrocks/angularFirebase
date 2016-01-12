@@ -10,8 +10,8 @@
                 <h4 class="list-group-item-heading" ng-click="editPost(article.$id)" data-target="#editModal">{{article.title}}</h4>
                 <p class="list-group-item-text" ng-click="editPost(article.$id)" data-target="#editModal">{{article.post}}</p>
                 <span class="pull-right">
-                  <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
-                  <button class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal">DELETE</button>
+                  <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></button>
+                <button class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal"><span class="glyphicon glyphicon-remove"></span></button>
                 </span>
             </a>
         </div>
@@ -62,22 +62,6 @@
             <img data-src="theme/images/4.jpg" src="" alt="Use data-src for on-demand loading">
             <img data-src="theme/images/6.jpg" src="" alt="Use data-src">
         </div>
-    </div>
-    <div class="container">
-        <p><strong>Irfan Pathan Hat-Trick agaisnt Pakistan</strong></p>
-        <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
-            <source src="theme/videos/Cricket Irfan Pathan of India getting a hattrick agaisnt Pakistan.mp4" type='video/mp4'>
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-        </video>
-        <p><strong>Harbhajan Singh Hat-Trick vs Australia</strong></p>
-        <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
-            <source src="theme/videos/Harbhajan Singh Hat-Trick vs Australia.mp4" type='video/mp4'>
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-        </video>
     </div>
     <footer class="footer">
         <div class="container">
