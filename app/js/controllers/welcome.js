@@ -7,7 +7,8 @@ angular.module('myApp.welcome', ['ngRoute']).config(['$routeProvider', function(
 }]).controller('WelcomeCtrl', ['$scope', '$firebase', '$location', 'CommonProp', function($scope, $firebase, $location, CommonProp) {
     var slider = new IdealImageSlider.Slider({
         selector: '#slider',
-        height: 600,
+        height: 300,
+        width:300,
         interval: 4000
     });
     slider.start();
@@ -15,7 +16,6 @@ angular.module('myApp.welcome', ['ngRoute']).config(['$routeProvider', function(
     if (!$scope.username) {
         $location.path('/home');
     }
-    var likeCount = 0;
     var firebaseObj = new Firebase("https://radiant-torch-5333.firebaseio.com/Articles");
     var sync = $firebase(firebaseObj.startAt($scope.username).endAt($scope.username));
     $scope.articles = sync.$asArray();

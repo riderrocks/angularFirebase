@@ -58,13 +58,3 @@ a.blog-nav-item-right{float:right;}
 form .progress{line-height:15px;}
 .progress{display:inline-block;width:100px;border:3px groove #CCC;}
 .progress div{font-size:smaller;background:orange;width:0;}
-.messageBox {  
-width:150px;  
-padding:75px;  
-border:1px solid #666;  
-position:fixed; 
-right:24%;  
-top:6%;  
-z-index:999;  
--webkit-border-radius: 6px; -moz-border-radius: 6px;
-background: url('../images/notifimage.png') no-repeat center wheat;}

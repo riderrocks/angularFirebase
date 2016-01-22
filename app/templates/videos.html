@@ -1,19 +1,34 @@
 <div ng-controller="videoctrl">
     <div ng-include="'templates/header.html'"></div>
     <div class="container">
-        <p><strong>Irfan Pathan Hat-Trick agaisnt Pakistan</strong></p>
-        <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
-            <source src="theme/videos/Cricket Irfan Pathan of India getting a hattrick agaisnt Pakistan.mp4" type='video/mp4'>
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-        </video>
-        <p><strong>Harbhajan Singh Hat-Trick vs Australia</strong></p>
-        <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
-            <source src="theme/videos/Harbhajan Singh Hat-Trick vs Australia.mp4" type='video/mp4'>
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-        </video>
+        <legend>My Videos</legend>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="thumbnail">
+                    <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
+                        <source src="theme/videos/Cricket Irfan Pathan of India getting a hattrick agaisnt Pakistan.mp4" type='video/mp4'>
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                    <div class="caption">
+                        <h3>Irfan Pathan Hat-Trick agaisnt Pakistan</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="thumbnail">
+                    <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="400" height="264" poster="theme/images/bms.jpg" data-setup='{}'>
+                        <source src="theme/videos/Harbhajan Singh Hat-Trick vs Australia.mp4" type='video/mp4'>
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                    <div class="caption">
+                        <h3>Harbhajan Singh Hat-Trick vs Australia</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -31,9 +31,18 @@ angular.module('myApp.addImage', ['ngRoute', 'base64', 'ngFileUpload']).config([
         });
     }
     $scope.remove = function(array, index) {
+    var ref = new Firebase("https://radiant-torch-5333.firebaseio.com/Images");
+
+    ref.on("value", function(snapshot) {
+        var sync = $firebase(ref.startAt($scope.username).endAt($scope.username));
+        var images = sync.$asArray();
+        console.log(images);
+    }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
         array.splice(index, 1);
     }
     $scope.logout = function() {
-        CommonProp.logoutUser();
-    }
+            CommonProp.logoutUser();
+        }
 }]);
