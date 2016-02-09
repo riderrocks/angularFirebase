@@ -4,7 +4,7 @@ angular.module('myApp.register', ['ngRoute', 'firebase']).config(['$routeProvide
         templateUrl: 'templates/register.html',
         controller: 'RegisterCtrl'
     });
-}]).controller('RegisterCtrl', ['$scope', '$location', '$firebaseAuth','$http', function($scope, $location, $firebaseAuth,$http) {
+}]).controller('RegisterCtrl', ['$scope', '$location', '$firebaseAuth', function($scope, $location, $firebaseAuth) {
     var firebaseObj = new Firebase("https://radiant-torch-5333.firebaseio.com");
     var auth = $firebaseAuth(firebaseObj);
     var login = {};
@@ -26,12 +26,6 @@ angular.module('myApp.register', ['ngRoute', 'firebase']).config(['$routeProvide
                     swal("Oops!", "Check your credentials", "error");
                 });
             }
-            $http.post('/api/registeruser/', $scope.user.email
-             ).success(function(data, status, headers, config) {
-              alert("Success!")
-             }).error(function(data, status, headers, config) {
-               alert("Error");
-            });
         }
     };
 }]);
