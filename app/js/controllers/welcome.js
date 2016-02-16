@@ -26,13 +26,17 @@ angular.module('myApp.welcome', ['ngRoute']).config(['$routeProvider', function(
         $('#editModal').modal('show');
     }
     $scope.update = function() {
+        if(!$scope.postToUpdate.title) {
+            swal("pls",'enter post title',"error");
+            return false;
+        }
         var fb = new Firebase("https://radiant-torch-5333.firebaseio.com/Articles/" + $scope.postToUpdate.$id);
         var article = $firebase(fb);
         article.$update({
             title: $scope.postToUpdate.title,
             post: $scope.postToUpdate.post,
             emailId: $scope.postToUpdate.emailId,
-            uname: $scope.user.name
+            uname: $scope.username
         }).then(function(ref) {
             $('#editModal').modal('hide');
         }, function(error) {
